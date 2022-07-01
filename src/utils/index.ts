@@ -1,6 +1,7 @@
 import { useEffect, useState } from 'react'
 
-export const isFalsy = (value: any) => (value === 0 ? false : !value)
+export const isFalsy: (value: unknown) => boolean = value =>
+  value === 0 ? true : !!value
 
 export const cleanObject = (object: any) => {
   const result = { ...object }
@@ -20,7 +21,7 @@ export const useMount = (callback: () => void) => {
   }, [])
 }
 
-export const useDebounce = (value: any, delay?:number) => {
+export const useDebounce = <T>(value: T, delay?: number): T => {
   const [debouncedValue, setDebouncedValue] = useState(value)
   useEffect(() => {
     // 每次value变化,设置一个定时器
@@ -34,6 +35,18 @@ export const useDebounce = (value: any, delay?:number) => {
   return debouncedValue
 }
 
-// export const useThrottle = (value, delay, dep = []) => {
-//   const {current} = useRef()
-// }
+/**
+ * useArray
+ * export const useArray = <T>(initialArray: T[]) => {
+  const [value, setValue] = useState(initialArray)
+  return {
+    value,
+    setValue,
+    add: (item: T) => setValue([...value, item]),
+    clear: () => setValue([]),
+    removeIndex: (index: number): void => {
+      setValue([...value].slice(index, 1))
+    },
+  }
+}
+ */

@@ -10,6 +10,7 @@
     "@types/node": "^16.11.39",
     "@types/react": "^18.0.12",
     "@types/react-dom": "^18.0.5",
+    "jira-dev-tool": "^1.7.61",
     "qs": "^6.10.5",
     "react": "^18.1.0",
     "react-dom": "^18.1.0",
@@ -21,8 +22,7 @@
     "start": "react-scripts start",
     "build": "react-scripts build",
     "test": "react-scripts test",
-    "eject": "react-scripts eject",
-    "json-server": "json-server __json_server_mock__/db.json --watch --port 3001"
+    "eject": "react-scripts eject"
   },
   "eslintConfig": {
     "extends": [
@@ -45,5 +45,8 @@
   "devDependencies": {
     "@types/qs": "^6.9.7",
     "json-server": "^0.17.0"
+  },
+  "msw": {
+    "workerDirectory": "public"
   }
 }

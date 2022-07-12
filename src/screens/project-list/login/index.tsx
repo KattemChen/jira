@@ -2,7 +2,9 @@ import React, { FormEvent } from 'react'
 
 
 export const LoginScreen = () => {
-  const login = (param: { username: string; password: string }) => {}
+  const login = (param: { username: string; password: string }) => {
+    
+  }
   const handleSubmit = (event: FormEvent<HTMLFormElement>) => {
     event.preventDefault()
     const username = (event.currentTarget.elements[0] as HTMLInputElement).value

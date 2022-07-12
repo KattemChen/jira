@@ -20,6 +20,23 @@ export const login = (data: { username: string; password: string }) => {
   }).then(async response => {
     if (response.ok) {
       return handleUserResponse(await response.json())
+    } else {
+      return Promise.reject(data)
     }
   })
 }
+export const register = (data: { username: string; password: string }) => {
+  fetch(`${apiURL}/register`, {
+    method: 'POST',
+    headers: {
+      'Content-Type': 'application/json',
+    },
+    body: JSON.stringify(data),
+  }).then(async response => {
+    if (response.ok) {
+      return handleUserResponse(await response.json())
+    }
+  })
+}
+
+export const logout = () => window.localStorage.removeItem(localStorageKey)
